@@ -1,0 +1,21 @@
+server:
+  port: 8447
+
+spring:
+  datasource:
+    url:
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    #open-in-view: false
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+        use_sql_comments: false
+        generate_statistics: false
+        jdbc:
+          batch_size: 25
+          order_inserts: true
+          order_updates: true
+          batch_versioned_data: true #Only if PreparedStatement.executeBatch returns valid number
