@@ -35,7 +35,7 @@ public class PersonRepositoryCustomImpl implements PersonRepositoryCustom {
     }
 
     public List<Person> findAllWithGraph() {
-        return em.createQuery("FROM Person p", Person.class)
+        return em.createQuery("FROM Person p FETCH JOIN p.accounts", Person.class)
                 .setHint(GraphSemantic.FETCH.getJpaHintName(), em.getEntityGraph(Person.GRAPH_ACCOUNTS))
                 .getResultList();
     }

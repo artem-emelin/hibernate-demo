@@ -21,6 +21,7 @@ plugins {
     id 'idea'
 }
 
+// Plugin to enhance compiled Entity
 /*apply plugin: 'org.hibernate.orm'
 hibernate {
     enhance {

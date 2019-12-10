@@ -27,7 +27,6 @@ public class DataPreLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         Person person = createPerson("Jhonny", "Black", MALE);
-        personRepository.save(person);
 
         person.addAccount(createAccount("My account 1", new BigDecimal("10.00")));
         person.addAccount(createAccount("My account 2", new BigDecimal("20.00")));
@@ -51,7 +50,6 @@ public class DataPreLoader implements ApplicationRunner {
     private void fillFakeData() {
         Faker faker = new Faker();
         Person person = createPerson(faker.name().firstName(), faker.name().lastName(), MALE);
-        personRepository.save(person);
 
         IntStream.range(1, 6)
                 .mapToObj(ind -> createAccount(faker.code().asin(), new BigDecimal("77.77")))

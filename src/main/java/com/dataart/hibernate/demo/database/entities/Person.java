@@ -8,6 +8,7 @@ import org.hibernate.annotations.*;
 import javax.persistence.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -70,15 +71,16 @@ public class Person {
     //@Fetch(value = FetchMode.SUBSELECT)
     //@LazyCollection(value = LazyCollectionOption.EXTRA)
     //@BatchSize(size = 2)
+    //@OrderBy
     private List<Account> accounts = new ArrayList<>();
 
     public void addAccount(Account account) {
-        //account.setOwner(this);
+        account.setOwner(this);
         accounts.add(account);
     }
 
     public void removeAccount(Account account) {
-        //account.setOwner(null);
+        account.setOwner(null);
         accounts.remove(account);
     }
 

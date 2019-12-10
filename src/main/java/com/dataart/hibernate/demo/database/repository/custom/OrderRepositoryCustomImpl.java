@@ -62,7 +62,7 @@ public class OrderRepositoryCustomImpl implements OrderRepositoryCustom {
     @Override
     public List<OrderModel> getAllOrdersByProjectionConstructor() {
         return em.createQuery(
-                "select new com.dataart.hibernate.demo.model.OrderModel(o.id, o.orderName) " +
+                "select new OrderModel(o.id, o.orderName) " +
                         "from Orders o", OrderModel.class)
                 .getResultList();
     }

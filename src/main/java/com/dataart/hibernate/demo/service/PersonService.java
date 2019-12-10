@@ -25,7 +25,7 @@ public class PersonService {
     private final PersonRepository personRepository;
     private final PersonMapper personMapper;
 
-    //@Transactional -- remove before DEMO !!!!
+    @Transactional
     public PersonModel getPerson(long personId) {
         LOG.info(">>>>>>>>>> Loading Person by Id {}", personId);
         Person person = personRepository.findById(personId);

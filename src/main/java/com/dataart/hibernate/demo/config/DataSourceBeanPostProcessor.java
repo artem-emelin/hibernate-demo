@@ -16,7 +16,7 @@ public class DataSourceBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof DataSource) {
-            return new SqlCountDatasource(new P6DataSource((DataSource) bean));
+            return new P6DataSource((DataSource) bean);
         }
         return bean;
     }
